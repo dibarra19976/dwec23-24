@@ -104,7 +104,7 @@ console.log(vocales);
 ARRAYS MULTIDIMENSIONALES
 */
 
-let tabla = new Array(9);
+let tabla = new Array(10);
 
 for (let i = 0; i < tabla.length; i++) {
   tabla[i] = new Array(10);
@@ -113,9 +113,12 @@ for (let i = 0; i < tabla.length; i++) {
 let divs = document.getElementsByClassName("tabla");
 
 for (let fila = 0; fila < tabla.length; fila++) {
+  let impares = "";
   for (let col = 0; col < tabla[fila].length; col++) {
-    tabla[fila][col] = (col+1)*(fila+1);
+    tabla[fila][col] = (col+1)*(fila);
+    if (tabla[fila][col] % 2 !=0 ) impares += tabla[fila][col]+ ", ";
   }
-  divs[fila].innerHTML = tabla[fila];
+  
+  divs[fila].innerHTML = "<h3> Tabla del " + fila+ "</h3>" + impares;
 }
 console.log(tabla);
