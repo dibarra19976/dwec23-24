@@ -18,7 +18,7 @@ let ciudad = {
 
 let esCapital = false;
 let numeroCiudadanos = 351752;
-let impuestosPorCiudadano = 100;
+let impuestosPorCiudadano = 100;  
 const esMetropolis =
   (esCapital == true && numeroCiudadanos > 100000) ||
   (numeroCiudadanos > 200000 &&

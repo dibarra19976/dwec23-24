@@ -103,6 +103,7 @@
 //   console.log(i);
 // }
 
+/*
 let nomEstudiant = "Jose";
 let notaExamen1 = 7;
 let notaExamen2 = 7;
@@ -131,3 +132,41 @@ else{
   console.log(nomEstudiant, ", no has aprobado el modulo. Necesitas esforzarte mas.");
 
 }
+*/
+
+
+// let any2010Juny = 25.8;
+// let any2010Juliol = 28.6;
+// let any2010Agost = 30.1;
+
+// let any2015Juny = 26.5;
+// let any2015Juliol = 29.3;
+// let any2015Agost = 30.8;
+
+// let any2020Juny = 27.2;
+// let any2020Juliol = 29.9;
+// let any2020Agost = 31.5;
+
+// let mitjanaAny2010 ;
+// let mitjanaAny2015;
+// let mitjanaAny2020;
+
+let parrafo = document.getElementById("fecha");
+
+// new Date();
+// new Date(millisegundos);
+// new Date(fechaEnFormaDeString);
+// new Date( año, mes, dia, horas, minutos, segundos, milisegundos);
+
+// //año, mes, dia
+// let fecha = new Date("2022-10-12");
+// //mes, dia, año
+// let fecha2 = new Date("5/11/2022");
+// //mes, dia, año
+// let fecha3 = new Date("Aug 19 2004");
+// // ???
+// let fecha4 = new Date(71,12,29,15,15,0,0);
+// parrafo.innerHTML = fecha  + fecha2 + fecha3+ fecha4;
+
+let fecha = new Date(1971,11,29,15,15,0,0);
+parrafo.innerHTML = fecha.getMinutes();
