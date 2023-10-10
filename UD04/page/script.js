@@ -118,7 +118,9 @@ for (let fila = 0; fila < tabla.length; fila++) {
     tabla[fila][col] = (col+1)*(fila);
     if (tabla[fila][col] % 2 !=0 ) impares += tabla[fila][col]+ ", ";
   }
-  
-  divs[fila].innerHTML = "<h3> Tabla del " + fila+ "</h3>" + impares;
+  if(impares!=""){
+    divs[fila].innerHTML = "<h3> Tabla del " + fila+ "</h3>" + impares;
+
+  }
 }
 console.log(tabla);
