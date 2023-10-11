@@ -124,3 +124,95 @@ for (let fila = 0; fila < tabla.length; fila++) {
   }
 }
 console.log(tabla);
+
+
+
+//METODODS DE ARRAYS
+//push()
+//pop() Elimina el ultimo elemento del array Y LO DEVUELVE
+
+let paco = ['joan', 'amparo', 'esther'];
+console.log(paco);
+let elementoEliminado= paco.pop();
+console.log(elementoEliminado);
+console.log(paco);
+
+//shift() Elimina el PRIMER elemento, y lo devuelve
+//unshift() Agrega uno o mas elementos AL PRINCPIO
+paco = ['joan', 'amparo', 'esther'];
+console.log(paco);
+elementoEliminado= paco.shift();
+console.log(elementoEliminado);
+console.log(paco);
+
+paco.unshift("valentin");
+console.log(paco);
+paco.unshift("pepe", "pedro");
+console.log(paco);
+
+//concat() Combina dos o mas arrays y devuelve un nuevo array
+
+paco.shift();
+paco.shift();
+paco.shift();
+
+console.log(paco);
+
+let otros = ["valentin","pepe"];
+let superpaco = paco.concat(otros);
+console.log(superpaco);
+
+//slice devuelve una copia (superficial) de una porcion del array
+let copiaPaco = paco.slice(0,1);
+console.log(copiaPaco);
+
+// splice() cambia el contenido de un array
+// eliminando, reemplazando o agregando elementos.
+
+// paco = ["joan","amparo","esther"];
+// paco.splice(2, 0, ...otros.splice(1,9,paco))
+// console.log(paco);
+
+
+//indexOf() devuelve el primre indice que en el que se encuentra un elemento dado
+//devuelve -1 si no lo encuentra
+console.log(superpaco.indexOf("pepe"));
+
+//lastIndexOf() devuelve el ultimo indice
+console.log(paco.lastIndexOf("amparo"));
+
+
+//join() une todos los elementos de un array en una cadena
+let cadena = paco.join(" x ")
+console.log(cadena);
+
+//sort() ordena los elementos de un array alfabeticamente
+//alfabeticametne si son cadenas
+//numericametne si son numeros
+
+otros = [3,"valentin",2,"esther",-1,0,1,19,102,false,true,null];
+console.log(otros.sort());
+//orxdenar correctametne con un sort => uso de parametro
+//se trata de una funcion:
+//- debe recibir dos valores a comparar
+//- como resultado debe: 
+//  - devolver un valor positivo (1) si el primer valor es superior al segundo
+//  - devolver un valore negativo (-1) si el primer valor es inferior al segundo
+//  - devolver un valor 0 si los dos valores osn iguales
+
+// sort en numeros
+let numeros = [1,2,3,4,1,54,15,24,2,21,24,2];
+console.log(numeros);
+console.log(numeros.sort((a,b) => a-b));
+
+
+//sort en cadenas
+
+console.log(superpaco.sort((a,b) =>{
+return a.toLowerCase() > b.toLowerCase() ? 1:
+a.toLowerCase() < b.toLowerCase() ? -1 : 0;
+}));
+
+console.log(superpaco.sort((a,b) =>{
+  return a.localeCompare(b);
+  }));
