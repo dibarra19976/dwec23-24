@@ -269,40 +269,39 @@ console.log(unCliente.pago["fecha de caducidad"]);
 let estudiante = {
   id: 2,
   nombre: "joan",
-  diHola: ()=> console.log("hola"),
-  diHola2 : function(){
+  diHola: () => console.log("hola"),
+  diHola2: function () {
     return "Hola";
   },
-  notas: [10,0,4],
-  mediaNotas : function(){
+  notas: [10, 0, 4],
+  mediaNotas: function () {
     let media = (this.notas[0] + this.notas[1] + this.notas[2]) / 3;
     return "Estudiante: " + this.nombre + " | Media: " + media;
-  }
+  },
 };
-
 
 console.log(estudiante.diHola2());
 estudiante.diHola();
 console.log(estudiante.notas[1]);
 console.log(estudiante.mediaNotas());
 estudiante.apellido = "Ibarra";
-estudiante.diAdios = function(){
+estudiante.diAdios = function () {
   return "Adios";
-}
+};
 
 //this
 
 let factura = {
   descripcion: "Factura de prueba",
-  precio : 100.0,
-  iva : 21.0,
-  subTotal : function(){
+  precio: 100.0,
+  iva: 21.0,
+  subTotal: function () {
     return this.precio;
   },
-  total : function (){
-    return this.precio + (this.iva * this.precio)/100;
-  }
-}
+  total: function () {
+    return this.precio + (this.iva * this.precio) / 100;
+  },
+};
 
 console.log(factura.subTotal);
 console.log(factura.subTotal());
@@ -312,19 +311,18 @@ console.log(factura.total());
 
 // CONSTRRUCTORES
 
-function Web(){
+function Web() {
   this.url = "http://localhost";
   this.nombre = "Localhost";
 
-  this.muestrInformacion = function(){
+  this.muestrInformacion = function () {
     return "url: " + this.url + "\n" + "Web: " + this.nombre;
-  }
-
+  };
 }
 Web.prototype.visitas = 2;
-Web.prototype.miFuncio = function(){
+Web.prototype.miFuncio = function () {
   return "Hola";
-}
+};
 
 let unaWeb = new Web();
 console.log(unaWeb);
@@ -340,3 +338,180 @@ otraWeb.nombre = "Friv Juegos";
 console.log(otraWeb);
 console.log(otraWeb.muestrInformacion());
 
+// Ordenadr/sort objetos
+const ciudades = [
+  {
+    municipio: "zaragoza",
+    provincia: "zaragoza",
+  },
+  {
+    municipio: "avila",
+    provincia: "avila",
+  },
+  {
+    municipio: "madrid",
+    provincia: "madrid",
+  },
+  {
+    municipio: "Barcelona",
+    provincia: "Barcelona",
+  },
+];
+
+console.log(ciudades);
+ciudades.sort((a, b) => a.municipio.localeCompare(b.municipio));
+
+// ES6
+
+const miArray = ["A", "b", "C"];
+miArray.push("D");
+console.log(miArray);
+const A = "a";
+
+miArray[1] = "B";
+
+// DESESCTRUCTURACION
+
+// const numeross = [1,2,3];
+
+// const [uno, dos, tres] = numeros;
+// console.log(tres);
+
+// const persona = {
+//   nombre: "Andreu",
+//   edad: 33
+// }
+
+// const {nombre, edad} = persona;
+
+// console.log(nombre);
+
+// const nombre = "Josep";
+// const edad = 33;
+
+// const persona = {nombre, edad};
+
+// console.log(persona);
+
+// const nombre = "Bob Esponja";
+// const edad  =32;
+
+// const mensaje = `Hola, mi nombre es ${nombre} y tengo ${edad} años`;
+
+// console.log(mensaje);
+
+// Operador spread
+
+// const numeros_ = [1,2,3];
+// const numerosNuevos = [...numeros_, 4, 5];
+// console.log(numerosNuevos);
+
+// Parametros por defecto
+// function saludar(nombre){
+//   console.log(`Hola, ${nombre}`);
+// }
+
+// saludar("Pepe");
+// saludar();
+
+// Parametros rest (rest parameter)
+
+// function sumar(...numerosss) {
+//   let resultado = 0;
+
+//   for(let numero of numerosss){
+//     if(typeof(numero)=="number"){
+//       resultado += numero;
+
+//     }
+//   }
+
+//   return resultado;
+// }
+// console.log(sumar(5,4,-1,3,"a"));
+
+// Funciones felcha () = > {}
+
+// function sumar(a, b) {
+//   return a + b;
+// }
+
+// const sumar = (...variable) => variable.forEach() ;
+
+
+// METODOS DE ARRAYS
+// forEach()
+
+// const numbers = [1,2,3,4,5];
+// // numbers.forEach((numero) => {
+// //   console.log(numero);
+// // })
+
+const multiplica2 = (nn) => {
+return nn * 2;
+ }
+
+
+// numbers.forEach((numero) => numero.multiplica())
+// console.log(numbers);
+
+
+// map() Cra un nuevo array con los resultados de aplicar una funcion a cada elemento del array
+const dobleNumero = numeros.map ((numero) => {
+  return multiplica2(numero);
+});
+console.log(dobleNumero);
+
+//filter() Crea un nuevo array con todos los elementos que cumplan una condicion determinada
+
+const numerosPares = numeros.filter((numero) => {
+  return numero % 2 === 0;
+});
+
+console.log(numerosPares);
+
+
+const numerosMayorADos = numeros.filter((numero) => {
+  return numero > 2;
+});
+
+console.log(numerosMayorADos);
+
+// reduce() Aplica una funcion a un acumulador y a cada elemento del array (de izquierda a derecha) para reducirlo a un unico valo9r
+
+const sum = numeros.reduce((acumulador, numero )=> {
+  return acumulador + numero;
+}, 0);
+
+console.log(sum);
+
+// find( ) Devuelve el primer elemento del array que cumpla una determinada condicion
+
+const numeroEncontrado = numeros.find((numero) => {
+  return numero <5;
+});
+
+console.log(numeroEncontrado);
+
+// findIndex( ) Devuelve el indicie del primer elemento del array que cumple con una funcion de preuba o -1 si no ecuentra nada
+
+const indiceEncontrado = numeros.findIndex((numero) => {
+  return numero <3;
+});
+console.log(indiceEncontrado);
+
+
+//some() Comprueba si al menos un elemento del array cumple con una condicion determinada
+
+const tieneNumeropar = numeros.some((numero )=> {
+  return numero % 2 === 0;
+});
+console.log(tieneNumeropar);
+
+// every() Comprueba si todos los elementos cumplen una condicion
+
+
+const sonNumerosPar = numeros.every((numero )=> {
+  return numero % 2 === 0;
+});
+console.log(sonNumerosPar);
