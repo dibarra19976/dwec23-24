@@ -25,6 +25,26 @@ function Planeta() {
 }
 
 //un array que tiene un array por cada planeta con su informacion
+let nombres = [
+  "Tierra", "Venus", "Jupiter", "Saturno", "Neptuno", "Marte", "Mercrio"
+];
+
+let distanciasSolKm = [
+  150000000, 108200000, 750000000, 1418000000, 4500000000, 228000000, 58000000
+];
+
+let tamanyoosKm = [
+  6371, 6052, 69911, 58232, 24622, 3389, 2439
+]
+
+let tamanyosRelativoTierra = [
+  100, 95, 1120, 945, 388, 53, 38
+] 
+
+let fechasDeDescubrimiento = [
+  "N/A", "1610", "Entre 1973 y 1974", "1610 ", new Date(1846 - 23 - 10), "1610",  "265 A.C."
+]
+
 let planetas = [
   ["Tierra", 150000000, 6371, 100, "N/A"],
   ["Venus", 108200000, 6052, 95, "1610"],

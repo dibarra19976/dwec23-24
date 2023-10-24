@@ -511,7 +511,119 @@ console.log(tieneNumeropar);
 // every() Comprueba si todos los elementos cumplen una condicion
 
 
-const sonNumerosPar = numeros.every((numero )=> {
-  return numero % 2 === 0;
-});
-console.log(sonNumerosPar);
+// const sonNumerosPar = numeros.every((numero )=> {
+//   //return numero % 2 === 0;
+
+//   if 
+// });
+// console.log(sonNumerosPar);
+
+
+
+
+// CLASSES 
+
+class Persona {
+  constructor(nombre){
+    this.nombre = nombre;
+  }
+
+  saludar(){
+    console.log(`Hola, soy ${this.nombre}`);
+  }
+
+}
+
+const joan = new Persona("Joan");
+
+joan.saludar();
+
+
+// HERENCIA
+class Empleado extends Persona{
+  constructor(nombre, salario){
+    super(nombre);
+    this.salario = salario;
+    
+  }
+
+  trabajar(){
+    console.log(`${this.nombre} esta trabajando`);
+  }
+}
+
+
+const maria = new Empleado("Maria", 3000);
+maria.trabajar();
+maria.saludar();
+
+
+// Simbolos
+
+/* 
+
+Simbolos Son una clase de datos introducida por ES6
+Son valores unicos e inmutables
+Se pueden utilizar como identificadores de propiedades de objetos
+*/
+
+const id = Symbol('id');
+const persona = {
+  nombre: "Joan",
+  [id]: 1
+};
+
+console.log([id]);
+
+
+// Iteradores 
+
+//Son objetos que implementan el protocolo de iteracion en JavaScdript.
+//Permiten recorrer y acceder a los elementos de una coleccion uno a uno.
+
+const numeros11 = [1, 2, 3];
+const iterador = numeros11[Symbol.iterator]();
+
+console.log(iterador.next());
+console.log(iterador.next());
+console.log(iterador.next());
+console.log(iterador.next());
+
+// SET 
+// Permtie almacenar valores UNICOS de cualquier tipo
+// No permite duplicados y ofrece metodos para agregar 
+// eliminar y beverificar la existencia de elementoos
+
+const setNumeros = new Set();
+setNumeros.add(1);
+setNumeros.add(2);
+setNumeros.add(3);
+
+console.log(setNumeros.has(2));
+
+setNumeros.delete(2);
+console.log(setNumeros.has(2));
+
+console.log(setNumeros.size);
+console.log(setNumeros)
+
+const iteratorNumeros = setNumeros[Symbol.iterator]();
+console.log(iteratorNumeros.next());
+
+
+// MAP
+// Permite almacenar Pares clave-valor, donde cada clave es UNICA
+// Permite operaciones de biusqueda, insercion y eliminacion
+
+const mapaNombres = new Map();
+mapaNombres.set("edad", 33);
+mapaNombres.set("profesion", "Desarrollador");
+
+console.log(mapaNombres);
+
+console.log(mapaNombres.get("edad"));
+console.log(mapaNombres.has("edad"));
+mapaNombres.delete("edad");
+console.log(mapaNombres.has("edad"));
+console.log(mapaNombres.size);
+console.log(mapaNombres);
