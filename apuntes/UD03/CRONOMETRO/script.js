@@ -122,10 +122,13 @@ function crono() {
 
   lahora.innerHTML = horas + ":" + minutos + ":" + segundos;
 }
-
-function reset() {
+function reiniciarCrono(){
   mifecha.setHours(0, 0, 0, 0);
   lahora.innerHTML = "00:00:00";
+}
+
+function reset() {
+  setTimeout(reiniciarCrono, 5000);
 }
 
 function start() {
