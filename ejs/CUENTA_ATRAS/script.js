@@ -85,25 +85,25 @@ let elcrono;
 let mifecha = new Date();
 let lahora = document.getElementById("lahora");
 
-mifecha.setHours(0, 0, 0, 0);
+mifecha.setHours(0, 0, 10, 0);
 
-lahora.innerHTML = "00:00:00";
+lahora.innerHTML = "00:00:10";
 
 function crono() {
   let horas = mifecha.getHours();
   let minutos = mifecha.getMinutes();
   let segundos = mifecha.getSeconds();
 
-  segundos += 1;
+  segundos -= 1;
 
-  if (segundos == 60) {
-    segundos = 0;
-    minutos += 1;
+  if (segundos == 0 && horas !== 0) {
+    segundos = 59;
+    minutos -= 1;
   }
 
-  if (minutos == 60) {
-    minutos = 0;
-    horas += 1;
+  if (minutos == 0 && horas !== 0 ) {
+    minutos = 59;
+    horas -= 1;
   }
 
   mifecha.setSeconds(segundos);
@@ -121,25 +121,27 @@ function crono() {
   }
 
   lahora.innerHTML = horas + ":" + minutos + ":" + segundos;
-}
+  if(horas == 0 && minutos ==0 && segundos == 0 ){
+    clearInterval(elcrono);
+  }
+} 
 function reiniciarCrono(){
-  mifecha.setHours(0, 0, 0, 0);
-  lahora.innerHTML = "00:00:00";
+  mifecha.setHours(0, 0, 10, 0);
+  lahora.innerHTML = "00:00:10";
 }
 
 function reset() {
-  setTimeout(reiniciarCrono, 5000);
+  setTimeout(reiniciarCrono, 0);
 }
 
 function start() {
-  if (elcrono == null) {
-    elcrono = setInterval(crono, 1000);
-  }
+
+   reset(); 
+   elcrono = setInterval(crono, 1000);
 }
 
 function stop() {
   clearInterval(elcrono);
-  elcrono = null;
 }
 
 let boton = document.getElementById("boton");

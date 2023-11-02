@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h2>UD 03</h2>
+    <h1>CRONOMETRO</h1>
+    <div id="CRONOMETRO">
+      <button id="start" onclick="start(); 
+                                    this.disabled = true;
+                                        ">Start</button>
+      <button id="stop" onclick="stop(); 
+                                    this.disabled = true;
+                                        ">Stop</button>
+      <button id="reset" onclick="reset(); 
+                                    this.disabled=true;
+                                        ">Reset</button>
+
+      <div id="lahora"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

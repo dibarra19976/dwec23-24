@@ -45,6 +45,7 @@ let fechasDeDescubrimiento = [
   "N/A", "1610", "Entre 1973 y 1974", "1610 ", new Date(1846 - 23 - 10), "1610",  "265 A.C."
 ]
 
+/*
 let planetas = [
   ["Tierra", 150000000, 6371, 100, "N/A"],
   ["Venus", 108200000, 6052, 95, "1610"],
@@ -54,21 +55,22 @@ let planetas = [
   ["Marte", 228000000, 3389, 53, "1610"],
   ["Mercurio", 58000000, 2439, 38, "265 A.C."],
 ];
+*/
+
 
 //Se crea un array para los planetas
-let objetosPlanetas = [];
+let objetosPlanetas = new Array(7);
 
 //Con un bucle for each se van creando instancias de planeta con la informacion de los arrays
-planetas.forEach((e) => {
+for (let i = 0; i<objetosPlanetas.length; i++){
   let planeta = new Planeta();
-  planeta.nombre = e[0];
-  planeta.distanciaSolKm = e[1];
-  planeta.tamanyoKm = e[2];
-  planeta.tamanyoRelativoTierra = e[3];
-  planeta.fechaDeDescubrimiento = e[4];
-
-  objetosPlanetas.push(planeta);
-});
+  planeta.nombre = nombres[i];
+  planeta.distanciaSolKm = distanciasSolKm[i];
+  planeta.tamanyoKm = tamanyoosKm[i];
+  planeta.tamanyoRelativoTierra = tamanyosRelativoTierra[i];
+  planeta.fechaDeDescubrimiento = fechasDeDescubrimiento[i];
+  objetosPlanetas[i] = planeta;
+}
 
 //Se muestra la informacion con la funcion y un bucle
 objetosPlanetas.forEach((planeta) => {
