@@ -627,3 +627,76 @@ mapaNombres.delete("edad");
 console.log(mapaNombres.has("edad"));
 console.log(mapaNombres.size);
 console.log(mapaNombres);
+
+
+// COOKIES
+/*
+  Las utilizamos para:
+    - Monitorizar la actividad de los usuarios
+    - Mantener opciones de visualizacion o de aspecto para el usuario
+    - Almacenar variables en el lado cliente
+    - Identificacion o autenticacion
+
+  CREAR UNA COOKIE
+  
+*/
+
+//document.cookie = "usuario=Oreo";
+function crearCookie(usuarioCookie){
+  console.log("Creamdo la cookie");
+  usuarioCookie += "expires=Tue 7 Nov 2023 12:15:00 GMT";
+  document.cookie = "usuario=" + encodeURIComponent(usuarioCookie);
+}
+// let usuarioCookie = "Oreo";
+function leerCookie(){
+  console.log("Leyendo las cookies");
+  console.log(decodeURIComponent(document.cookie));
+}
+console.log();
+
+
+/*
+  LOCAL STORAGE
+
+  setItem(clave, valor)
+  getItem(ckave)
+*/
+
+function guardaValores(){
+  console.log("Guardando valores en el local storage");
+  // let usuariosWeb = ["Bonifacio", "Alfredo", "Guillermo", "Miguel"]
+  let usuariosWeb = {
+    1: {
+      "nombre" : "bonifacio",
+      "apellido" :"si"  
+    },
+    2: {
+      "nombre" : "alfredo",
+      "apellido" :"si"  
+    },
+    3: {
+      "nombre" : "guillermo",
+      "apellido" :"si"  
+    }
+  }
+  localStorage.setItem("usuarios", JSON.stringify( usuariosWeb) );
+}
+
+function leerValores(){
+  console.log("Leyendo valores en el local storage");
+  console.log( JSON.parse( localStorage.getItem("usuarios"))  );
+}
+
+/*
+  RECUSRIVIDAD
+
+*/
+
+function factorial(numero){
+  if(numero == 0) return 1;
+ 
+  else return numero * factorial(numero-1);
+  
+}
+
+console.log(factorial(5));

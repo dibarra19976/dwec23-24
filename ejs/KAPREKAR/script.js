@@ -211,3 +211,4 @@ function formateaNumeroACuatroDigitos(numero, esIzquierda){
 
   return numero;
 }
+
