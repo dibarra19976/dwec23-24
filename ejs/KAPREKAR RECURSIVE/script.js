@@ -108,7 +108,7 @@ function kaprekar(numero){
 
   pasos++;
   
-  if(numeroFormateado != 6174 || pasos > 7){
+  if(numeroFormateado != 1 && pasos < 7){
     kaprekar(numeroFormateado); 
 
   }
