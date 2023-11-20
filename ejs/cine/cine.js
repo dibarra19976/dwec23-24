@@ -8,6 +8,8 @@ const peliculaselect = document.getElementById("pelicula");
 //Precio de la pelicula seleccionada
 let preuDelTicket = +peliculaselect.value;
 
+ompleUI();
+
 //Funciones
 
 function actualizaSeleccioSeients() {
@@ -28,6 +30,32 @@ function actualizaSeleccioSeients() {
   const contadorSeientsSeleccionats = seientsSeleccionats.length;
   contador.innerHTML = contadorSeientsSeleccionats;
   total.innerHTML = contadorSeientsSeleccionats*preuDelTicket;
+}
+
+function ompleUI(){
+    const seientsSeleccionats = JSON.parse(localStorage.getItem("seientsSeleccionats"));
+
+    if(seientsSeleccionats !== null && seientsSeleccionats.length > 0){
+        seients.forEach((seient, index) => {
+            if(seientsSeleccionats.indexOf(index) > -1){
+                seient.classList.add("seleccionat");
+            }
+        });
+    }
+
+    const indexPeliculaSeleccionada = localStorage.getItem("indexPeliculaSeleccionada");
+
+    if(indexPeliculaSeleccionada !== null ){
+        peliculaselect.selectedIndex = indexPeliculaSeleccionada;
+    }
+
+    const preuPeliculaSeleccionada = localStorage.getItem("preuPeliculaSeleccionada");
+
+    if(preuPeliculaSeleccionada !== null ){
+       preuDelTicket = +preuPeliculaSeleccionada;
+    }    
+
+    actualizaSeleccioSeients();
 }
 
 //Eventos
